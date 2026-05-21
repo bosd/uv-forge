@@ -1,0 +1,6 @@
+# Mirrors the [dependency-groups] "docs" set in pyproject.toml.
+# Used by Read the Docs to build the documentation.
+shibuya
+sphinx
+sphinx-click
+myst-parser

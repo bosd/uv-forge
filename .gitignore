@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+.nox/
+dist/
+build/
+*.egg-info/
+.copier-answers.yml.bak

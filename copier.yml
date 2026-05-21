@@ -1,0 +1,85 @@
+_subdirectory: template
+_templates_suffix: .jinja
+_answers_file: .copier-answers.yml
+_min_copier_version: "9.0.0"
+_jinja_extensions:
+  - jinja2_time.TimeExtension
+
+project_name:
+  type: str
+  help: Project / distribution name (e.g. my-package)
+  default: my-package
+
+package_name:
+  type: str
+  help: Importable Python package name
+  default: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
+
+friendly_name:
+  type: str
+  help: Human-friendly project title
+  default: "{{ project_name|replace('-', ' ')|replace('_', ' ')|title }}"
+
+author:
+  type: str
+  help: Your full name
+  default: Your Name
+
+email:
+  type: str
+  help: Your email address
+  default: you@example.com
+
+github_user:
+  type: str
+  help: GitHub username or organization
+  default: your-username
+
+version:
+  type: str
+  help: Initial version
+  default: "0.0.0"
+
+license:
+  type: str
+  help: License
+  choices:
+    - MIT
+    - Apache-2.0
+    - GPL-3.0
+  default: MIT
+
+development_status:
+  type: str
+  help: PyPI "Development Status" classifier
+  choices:
+    "1 - Planning": "Development Status :: 1 - Planning"
+    "2 - Pre-Alpha": "Development Status :: 2 - Pre-Alpha"
+    "3 - Alpha": "Development Status :: 3 - Alpha"
+    "4 - Beta": "Development Status :: 4 - Beta"
+    "5 - Production/Stable": "Development Status :: 5 - Production/Stable"
+    "6 - Mature": "Development Status :: 6 - Mature"
+    "7 - Inactive": "Development Status :: 7 - Inactive"
+  default: "Development Status :: 3 - Alpha"
+
+docs_host:
+  type: str
+  help: Where documentation is built / hosted
+  choices:
+    - readthedocs
+    - github-pages
+  default: readthedocs
+
+extension:
+  type: str
+  help: "Compiled-extension strategy (Rust/PyO3 planned for a future release)"
+  choices:
+    - none
+    - mypyc
+  default: none
+
+copyright_year:
+  type: str
+  help: Copyright year
+  default: "{% now 'utc', '%Y' %}"
+  when: false
