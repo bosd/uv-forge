@@ -1,0 +1,4 @@
+sphinx
+shibuya
+myst-parser
+sphinx-copybutton
