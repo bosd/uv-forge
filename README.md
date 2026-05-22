@@ -1,5 +1,9 @@
 # uv-forge
 
+[![Documentation Status](https://readthedocs.org/projects/uv-forge/badge/?version=latest)](https://uv-forge.readthedocs.io/en/latest/?badge=latest)
+[![CI](https://github.com/bosd/uv-forge/actions/workflows/ci.yml/badge.svg)](https://github.com/bosd/uv-forge/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bosd/uv-forge/blob/main/LICENSE)
+
 A [Copier] template for forging modern, opinionated Python projects at high speed —
 [uv] for everything, [Ruff], strict [mypy] (plus [ty]), [nox], 100% coverage, and a
 hardened, SHA-pinned GitHub Actions setup with SLSA build provenance.

@@ -5,7 +5,7 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/{{project_name}})][pypi status]
 [![License](https://img.shields.io/pypi/l/{{project_name}})][license]
 
-[![Read the documentation at https://{{project_name}}.readthedocs.io/](https://img.shields.io/readthedocs/{{project_name}}/latest.svg?label=Read%20the%20Docs)][read the docs]
+{% if docs_host == "readthedocs" %}[![Read the documentation at https://{{project_name}}.readthedocs.io/](https://img.shields.io/readthedocs/{{project_name}}/latest.svg?label=Read%20the%20Docs)][read the docs]{% else %}[![Documentation](https://img.shields.io/badge/docs-online-blue.svg)][read the docs]{% endif %}
 [![Tests](https://github.com/{{github_user}}/{{project_name}}/workflows/Tests/badge.svg)][tests]
 [![Codecov](https://codecov.io/gh/{{github_user}}/{{project_name}}/branch/main/graph/badge.svg)][codecov]
 
@@ -13,7 +13,7 @@
 [![Ruff codestyle][ruff badge]][ruff project]
 
 [pypi status]: https://pypi.org/project/{{project_name}}/
-[read the docs]: https://{{project_name}}.readthedocs.io/
+[read the docs]: {% if docs_host == "readthedocs" %}https://{{project_name}}.readthedocs.io/{% else %}https://{{github_user}}.github.io/{{project_name}}/{% endif %}
 [tests]: https://github.com/{{github_user}}/{{project_name}}/actions?workflow=Tests
 [codecov]: https://app.codecov.io/gh/{{github_user}}/{{project_name}}
 [pre-commit]: https://github.com/pre-commit/pre-commit
@@ -97,4 +97,4 @@ This project was generated from [@cjolowicz]'s [uv hypermodern python cookiecutt
 
 [license]: https://github.com/{{github_user}}/{{project_name}}/blob/main/LICENSE
 [contributor guide]: https://github.com/{{github_user}}/{{project_name}}/blob/main/CONTRIBUTING.md
-[command-line reference]: https://{{project_name}}.readthedocs.io/en/latest/usage.html
+[command-line reference]: {% if docs_host == "readthedocs" %}https://{{project_name}}.readthedocs.io/en/latest/usage.html{% else %}https://{{github_user}}.github.io/{{project_name}}/usage.html{% endif %}
