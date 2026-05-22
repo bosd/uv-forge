@@ -8,7 +8,7 @@ a one-time setup (an account, a repository secret, or a configured publisher).
 Releases publish to **PyPI** using **trusted publishing** (OIDC — no API token):
 
 1. Create the project on PyPI (or let the first trusted-publishing upload create it).
-2. Add a *trusted publisher* pointing at your repo's `release.yml` workflow and the `pypi`
+2. Add a _trusted publisher_ pointing at your repo's `release.yml` workflow and the `pypi`
    environment.
 
 Pushes to `main` also publish to **TestPyPI**, which uses a token — add a `TEST_PYPI_TOKEN`
@@ -36,9 +36,9 @@ secret.
 
 ## Secrets summary
 
-| Secret | Needed for |
-| --- | --- |
+| Secret            | Needed for                                 |
+| ----------------- | ------------------------------------------ |
 | `TEST_PYPI_TOKEN` | Publishing to TestPyPI on pushes to `main` |
-| `CODECOV_TOKEN` | Uploading coverage to Codecov |
+| `CODECOV_TOKEN`   | Uploading coverage to Codecov              |
 
 Production **PyPI** needs no secret — it uses trusted publishing.

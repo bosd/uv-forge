@@ -6,7 +6,7 @@ release notes are drafted automatically by
 
 ## Flow
 
-1. **Merge your pull requests.** Release Drafter keeps a *draft* GitHub Release up to date with the
+1. **Merge your pull requests.** Release Drafter keeps a _draft_ GitHub Release up to date with the
    changes since the last release, categorized by PR labels.
 2. **Bump the version** in `pyproject.toml` and merge that change.
 3. **Publish the draft release** on GitHub (Releases → edit the draft → Publish). Publishing creates
@@ -23,6 +23,6 @@ real release.
 
 ## Changelog
 
-The changelog *is* your project's **GitHub Releases** page — Release Drafter maintains it, and the
+The changelog _is_ your project's **GitHub Releases** page — Release Drafter maintains it, and the
 generated `pyproject.toml` points its `Changelog` URL there. (For uv-forge itself, that's
 <https://github.com/bosd/uv-forge/releases>.)

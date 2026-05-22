@@ -33,11 +33,11 @@ uvx --with jinja2-time copier update --trust
 
 ## Options
 
-| Question | Choices | Default | Effect |
-| --- | --- | --- | --- |
-| `extension` | `none`, `mypyc` | `none` | `none` → pure-Python (hatchling). `mypyc` → compiled wheels (setuptools + mypyc + cibuildwheel). *(Rust/PyO3 planned.)* |
-| `docs_host` | `readthedocs`, `github-pages` | `readthedocs` | Read the Docs config, or a GitHub Pages build+deploy workflow. |
-| `license` | MIT, Apache-2.0, GPL-3.0 | MIT | Project license. |
+| Question    | Choices                       | Default       | Effect                                                                                                                  |
+| ----------- | ----------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `extension` | `none`, `mypyc`               | `none`        | `none` → pure-Python (hatchling). `mypyc` → compiled wheels (setuptools + mypyc + cibuildwheel). _(Rust/PyO3 planned.)_ |
+| `docs_host` | `readthedocs`, `github-pages` | `readthedocs` | Read the Docs config, or a GitHub Pages build+deploy workflow.                                                          |
+| `license`   | MIT, Apache-2.0, GPL-3.0      | MIT           | Project license.                                                                                                        |
 
 Plus the usual `project_name`, `package_name`, `author`, `email`, `github_user`, `version`,
 `development_status`.

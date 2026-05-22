@@ -58,15 +58,34 @@ jobs:
         working-directory: ${{ runner.temp }}/out
         run: uv run nox -s tests_compiled
 
-  # Single required check to gate merges on (covers the whole matrix).
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the template
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
+        with:
+          python-version: "3.13"
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: false
+      - name: Run pre-commit
+        run: uvx pre-commit run --all-files --show-diff-on-failure
+
+  # Single required check to gate merges on (covers the whole matrix + lint).
   ci-success:
     name: ci-success
     if: always()
-    needs: generate
+    needs: [generate, lint]
     runs-on: ubuntu-latest
     steps:
-      - name: Fail if any matrix job failed
-        if: needs.generate.result != 'success'
+      - name: Fail if any required job failed
+        if: needs.generate.result != 'success' || needs.lint.result != 'success'
         run: exit 1
-      - name: All matrix jobs succeeded
-        run: echo "CI matrix passed."
+      - name: All required jobs succeeded
+        run: echo "CI passed."

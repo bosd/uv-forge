@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "automerge": true,
+  "platformAutomerge": true,
+  "packageRules": [
+    {
+      "description": "Major updates need manual review.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "SHA-pinned actions inside the Jinja workflow templates.",
+      "managerFilePatterns": ["/^template/\\.github/workflows/.*\\.jinja$/"],
+      "matchStrings": [
+        "uses:\\s+(?<depName>[\\w.+-]+/[\\w.+-]+)@(?<currentDigest>[a-f0-9]{40})\\s+#\\s+(?<currentValue>v[\\w.+-]+)"
+      ],
+      "datasourceTemplate": "github-tags"
+    }
+  ]
+}

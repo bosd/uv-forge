@@ -26,18 +26,18 @@ These run with a bare `uv run nox` and in CI.
 
 `pre-commit`
 : Lint and format everything — Ruff (lint + format), pydoclint, ty, zizmor and actionlint on the
-  workflows, prettier, and the file-hygiene hooks.
+workflows, prettier, and the file-hygiene hooks.
 
 `mypy`
 : Strict static type checking across all supported Python versions.
 
 `ty`
 : [Astral's ty](https://github.com/astral-sh/ty) as a fast secondary type check. mypy stays the
-  authoritative checker.
+authoritative checker.
 
 `tests`
 : The pytest suite across all supported Python versions, in parallel (`pytest-xdist`) and in random
-  order (`pytest-randomly`).
+order (`pytest-randomly`).
 
 `typeguard`
 : Runs the tests with runtime type checking enabled.
@@ -60,8 +60,8 @@ Not part of the default suite — run them explicitly.
 
 `docs-linkcheck`
 : Checks external documentation links. Runs **weekly** (and on demand) via the `linkcheck`
-  workflow — never on pull requests, so a flaky external link can't block a merge.
+workflow — never on pull requests, so a flaky external link can't block a merge.
 
 `tests_compiled`
-: *Only when `extension=mypyc`.* Builds the mypyc C extension and runs the suite against the
-  compiled build.
+: _Only when `extension=mypyc`._ Builds the mypyc C extension and runs the suite against the
+compiled build.

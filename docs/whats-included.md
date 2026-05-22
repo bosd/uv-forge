@@ -6,7 +6,7 @@ A generated project is opinionated so you can start writing code immediately.
 
 - **[uv](https://docs.astral.sh/uv/)** — one fast tool for environments, dependencies, builds, and
   publishing. `nox` uses it as its backend.
-- **[Ruff](https://docs.astral.sh/ruff/)** — linter *and* formatter, with a broad rule set
+- **[Ruff](https://docs.astral.sh/ruff/)** — linter _and_ formatter, with a broad rule set
   (bugbear, simplify, pathlib, perflint, comprehensions, and more).
 - **[mypy](https://mypy.readthedocs.io/) `--strict`** — the authoritative type checker, plus
   **[ty](https://github.com/astral-sh/ty)** as a fast secondary check.

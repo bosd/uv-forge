@@ -5,6 +5,10 @@ _min_copier_version: "9.0.0"
 _jinja_extensions:
   - jinja2_time.TimeExtension
 
+# Create a committed uv.lock in the generated project for reproducible installs.
+_tasks:
+  - "uv lock"
+
 project_name:
   type: str
   help: Project / distribution name (e.g. my-package)
