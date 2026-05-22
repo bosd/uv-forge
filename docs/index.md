@@ -29,6 +29,7 @@ overview
 getting-started
 options
 whats-included
+security
 nox-sessions
 external-services
 releasing

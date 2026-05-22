@@ -57,3 +57,16 @@ jobs:
         if: matrix.extension == 'mypyc'
         working-directory: ${{ runner.temp }}/out
         run: uv run nox -s tests_compiled
+
+  # Single required check to gate merges on (covers the whole matrix).
+  ci-success:
+    name: ci-success
+    if: always()
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if any matrix job failed
+        if: needs.generate.result != 'success'
+        run: exit 1
+      - name: All matrix jobs succeeded
+        run: echo "CI matrix passed."
