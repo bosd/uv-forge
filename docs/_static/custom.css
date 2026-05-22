@@ -1,0 +1,7 @@
+/* uv-forge documentation — small visual touches.
+   The brass/amber accent comes from `accent_color: amber` in conf.py. */
+
+article img,
+.bd-content img {
+  border-radius: 8px;
+}
