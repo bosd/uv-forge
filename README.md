@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/_static/uv-forge.png" alt="uv-forge logo" width="280">
+  <img src="docs/_static/uv-forge-banner.webp" alt="uv-forge" width="720">
 </p>
 
 # uv-forge

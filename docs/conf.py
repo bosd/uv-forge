@@ -9,7 +9,7 @@ extensions = [
 ]
 html_theme = "shibuya"
 html_static_path = ["_static"]
-html_logo = "_static/uv-forge.png"
+html_logo = "_static/uv-forge.webp"
 html_title = "uv-forge"
 myst_enable_extensions = [
     "colon_fence",
