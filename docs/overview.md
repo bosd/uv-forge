@@ -1,5 +1,11 @@
 # Project overview
 
+```{image} _static/uv-forge.webp
+:alt: uv-forge logo
+:width: 200px
+:align: center
+```
+
 uv-forge generates a complete, opinionated Python project so you can start writing code instead of
 wiring up tooling. It's a [Copier](https://copier.readthedocs.io/) template — the maintained
 successor to the cookiecutter "hypermodern Python" line — built around the fast, Rust-based
