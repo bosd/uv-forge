@@ -21,6 +21,11 @@ release notes are drafted automatically by
 Every push to `main` also publishes to **TestPyPI**, so you can verify a build before cutting the
 real release.
 
+## Versioning
+
+Projects follow [Semantic Versioning](https://semver.org/), starting from the `version` you chose
+(default `0.0.0`). Bump it in `pyproject.toml` before publishing the release.
+
 ## Changelog
 
 The changelog _is_ your project's **GitHub Releases** page — Release Drafter maintains it, and the

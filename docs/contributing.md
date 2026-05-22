@@ -23,3 +23,20 @@ filenames use a `.jinja` suffix.
 - Workflow files with no template variables are kept static (literal `${{ }}` is fine); only files
   that interpolate Copier variables carry a `.jinja` suffix.
 - Keep GitHub Actions SHA-pinned and the workflows `zizmor`-clean.
+
+## Testing the template
+
+uv-forge has its own test suite (using
+[pytest-copier](https://pypi.org/project/pytest-copier/)) that renders the template with different
+answers and asserts on the result:
+
+```console
+uv run pytest
+```
+
+CI also generates projects across the `extension` × `docs_host` matrix and runs their full nox suite.
+
+## Releasing uv-forge
+
+Releases are tagged with **CalVer** (e.g. `2026.5.22`). Copier uses these git tags as template
+versions, so `copier update` moves generated projects to the latest tagged release.

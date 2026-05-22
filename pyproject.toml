@@ -1,0 +1,18 @@
+[project]
+name = "uv-forge-template"
+version = "0"
+description = "Tooling and tests for the uv-forge Copier template (not a published package)."
+requires-python = ">=3.11"
+
+[dependency-groups]
+dev = [
+  "pytest >= 8.3",
+  "pytest-copier >= 0.4",
+  "jinja2-time >= 0.2",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
