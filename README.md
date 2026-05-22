@@ -51,6 +51,18 @@ Plus the usual `project_name`, `package_name`, `author`, `email`, `github_user`,
   **zizmor** + **actionlint** pre-commit hooks.
 - **Release**: trusted PyPI publishing (OIDC), Sigstore signing, and SLSA build-provenance attestations.
 
+## Origins
+
+uv-forge is an ultramodern evolution of the **Hypermodern Python** lineage:
+
+- [Hypermodern Python][hmp article] — Claudio Jolowicz's article series that defined the approach,
+  and its template [cjolowicz/cookiecutter-hypermodern-python][hmp].
+- [bosd/cookiecutter-uv-hypermodern-python][cc] — a fork that moved the stack to **uv**.
+- **uv-forge** — the maintained **Copier** successor: the same quality-first philosophy with the
+  modern Astral toolchain (uv, Ruff, ty), in-place `copier update`, and hardened CI.
+
+Thanks to Claudio Jolowicz and the hypermodern-python community.
+
 ## License
 
 MIT
@@ -62,3 +74,5 @@ MIT
 [ty]: https://github.com/astral-sh/ty
 [nox]: https://nox.thea.codes/
 [cc]: https://github.com/bosd/cookiecutter-uv-hypermodern-python
+[hmp]: https://github.com/cjolowicz/cookiecutter-hypermodern-python
+[hmp article]: https://blog.claudiojolowicz.com/posts/hypermodern-python-01-setup/

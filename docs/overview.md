@@ -23,6 +23,15 @@ uv-forge asks a few questions when generating (see [Options](options.md)):
 - `docs_host` — Read the Docs or GitHub Pages.
 - `license` — MIT, Apache-2.0, or GPL-3.0.
 
+## Origins
+
+uv-forge is an ultramodern evolution of the **Hypermodern Python** lineage — Claudio Jolowicz's
+[Hypermodern Python](https://blog.claudiojolowicz.com/posts/hypermodern-python-01-setup/) article
+series and its [cookiecutter template](https://github.com/cjolowicz/cookiecutter-hypermodern-python),
+by way of the uv-based fork
+[cookiecutter-uv-hypermodern-python](https://github.com/bosd/cookiecutter-uv-hypermodern-python).
+uv-forge is the maintained Copier successor. Thanks to Claudio Jolowicz and that community.
+
 ## License
 
 uv-forge itself is distributed under the **MIT license**. Generated projects get whichever license
