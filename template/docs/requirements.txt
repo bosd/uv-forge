@@ -4,3 +4,4 @@ shibuya
 sphinx
 sphinx-click
 myst-parser
+sphinxcontrib-svg2pdfconverter
