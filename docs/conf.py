@@ -8,6 +8,9 @@ extensions = [
     "sphinx_copybutton",
 ]
 html_theme = "shibuya"
+html_static_path = ["_static"]
+html_logo = "_static/uv-forge.png"
+html_title = "uv-forge"
 myst_enable_extensions = [
     "colon_fence",
     "deflist",

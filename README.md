@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/_static/uv-forge.png" alt="uv-forge logo" width="280">
+</p>
+
 # uv-forge
 
 [![Documentation Status](https://readthedocs.org/projects/uv-forge/badge/?version=latest)](https://uv-forge.readthedocs.io/en/latest/?badge=latest)
