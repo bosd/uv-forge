@@ -167,9 +167,13 @@ def ty(session: nox.Session) -> None:
     reaches a stable release.
     """
     args = session.posargs or ["src", "tests"]
+    # Sync the dev group too so the package and test dependencies (pytest, ...)
+    # are present, letting ty resolve imports when checking tests/, not just src/.
     session.run(
         "uv",
         "sync",
+        "--group",
+        "dev",
         "--group",
         "ty",
         external=True,
