@@ -11,8 +11,9 @@ Releases publish to **PyPI** using **trusted publishing** (OIDC — no API token
 2. Add a _trusted publisher_ pointing at your repo's `release.yml` workflow and the `pypi`
    environment.
 
-Pushes to `main` also publish to **TestPyPI**, which uses a token — add a `TEST_PYPI_TOKEN`
-repository secret.
+If you enabled the `publish_to_testpypi` option (off by default), pushes to `main` also publish to
+**TestPyPI**, which uses a token — add a `TEST_PYPI_TOKEN` repository secret. Leave the option off if
+you only publish to real PyPI.
 
 ## Documentation hosting
 
@@ -36,9 +37,9 @@ secret.
 
 ## Secrets summary
 
-| Secret            | Needed for                                 |
-| ----------------- | ------------------------------------------ |
-| `TEST_PYPI_TOKEN` | Publishing to TestPyPI on pushes to `main` |
-| `CODECOV_TOKEN`   | Uploading coverage to Codecov              |
+| Secret            | Needed for                                                   |
+| ----------------- | ------------------------------------------------------------ |
+| `TEST_PYPI_TOKEN` | Publishing to TestPyPI (only if `publish_to_testpypi` is on) |
+| `CODECOV_TOKEN`   | Uploading coverage to Codecov                                |
 
 Production **PyPI** needs no secret — it uses trusted publishing.

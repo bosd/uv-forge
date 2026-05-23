@@ -18,8 +18,8 @@ release notes are drafted automatically by
    - **signs** the artifacts with Sigstore and attaches the signatures to the release;
    - **publishes to PyPI** via trusted publishing.
 
-Every push to `main` also publishes to **TestPyPI**, so you can verify a build before cutting the
-real release.
+If you enabled the `publish_to_testpypi` option, every push to `main` also publishes to **TestPyPI**,
+so you can verify a build before cutting the real release. It's off by default.
 
 ## Versioning
 
