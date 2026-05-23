@@ -26,7 +26,7 @@ jobs:
           publish: false
         env:
           GITHUB_TOKEN: {{ "${{ secrets.GITHUB_TOKEN }}" }}
-
+{% if publish_to_testpypi %}
   publish-to-testpypi:
     if: github.event_name == 'push'
     name: Build and Publish to TestPyPI
@@ -53,7 +53,7 @@ jobs:
           password: {{ "${{ secrets.TEST_PYPI_TOKEN }}" }}
           repository_url: https://test.pypi.org/legacy/
           skip-existing: true
-
+{% endif %}
   build_wheels:
     if: github.event_name == 'release' && github.event.action == 'published'
     name: Build wheels on {{ "${{ matrix.os }}" }} {{ "(${{ matrix.arch }})" }}

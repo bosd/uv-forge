@@ -82,6 +82,11 @@ extension:
     - mypyc
   default: none
 
+publish_to_testpypi:
+  type: bool
+  help: "Publish to TestPyPI on each push to the default branch? (needs a TEST_PYPI_TOKEN secret)"
+  default: false
+
 copyright_year:
   type: str
   help: Copyright year
