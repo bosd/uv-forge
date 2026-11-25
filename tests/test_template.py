@@ -62,3 +62,14 @@ def test_package_name_derived(copier, tmp_path: Path) -> None:
     """package_name is derived from a dashed project_name."""
     project = copier.copy(tmp_path / "named", project_name="my-cool-tool")
     assert (project / "src/my_cool_tool/__init__.py").exists()
+
+
+def test_runtime_dependencies_exclude_dev_tools(copier, tmp_path: Path) -> None:
+    """Dev tooling (nox) is a dev-group dependency, never a runtime one."""
+    import tomllib
+
+    project = copier.copy(tmp_path / "deps")
+    data = tomllib.loads((project / "pyproject.toml").read_text())
+    runtime = [d.split()[0] for d in data["project"]["dependencies"]]
+    assert "nox" not in runtime
+    assert any(d.startswith("nox") for d in data["dependency-groups"]["dev"])

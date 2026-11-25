@@ -149,11 +149,8 @@ def mypy(session: nox.Session) -> None:
         "--group",
         "mypy",
         external=True,
+        env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
     )
-
-    session.install("mypy")
-    session.install("pytest")
-    session.install("-e", ".")
     session.run("mypy", *args)
     if not session.posargs:
         session.run("mypy", f"--python-executable={sys.executable}", "noxfile.py")
@@ -213,15 +210,14 @@ def tests_compiled(session: nox.Session) -> None:
 def coverage(session: nox.Session) -> None:
     """Produce the coverage report."""
     args = session.posargs or ["report"]
-    session.install(
-        "pytest",
-        "coverage[toml]",
-        "pytest-cov",
-        "pytest-mock",
-        "pytest-xdist",
-        "pytest-randomly",
+    session.run(
+        "uv",
+        "sync",
+        "--group",
+        "dev",
+        external=True,
+        env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
     )
-    session.install("-e", ".")
     session.log("Running pytest with coverage...")
     session.run("pytest", "-n", "auto", "--cov=src", "--cov-report=xml")
 
@@ -242,10 +238,8 @@ def typeguard_tests(session: nox.Session) -> None:
         "--group",
         "typeguard",
         external=True,
+        env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
     )
-
-    session.install("typeguard", "pytest", "pytest-mock")
-    session.install("-e", ".")
     session.run("pytest", "--typeguard-packages", package, *session.posargs)
 
 
@@ -266,9 +260,8 @@ def xdoctest(session: nox.Session) -> None:
         "--group",
         "xdoctest",
         external=True,
+        env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
     )
-    session.install("xdoctest")
-    session.install("-e", ".")
     session.run("python", "-m", "xdoctest", package, *args)
 
 
