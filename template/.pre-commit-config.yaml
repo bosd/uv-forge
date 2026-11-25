@@ -45,6 +45,11 @@ repos:
         entry: ruff format
         language: python
         types_or: [python, pyi]
+      - id: typos
+        name: typos
+        entry: typos --force-exclude
+        language: system
+        types: [text]
       - id: ty
         name: ty
         entry: ty check src tests

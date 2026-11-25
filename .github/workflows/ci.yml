@@ -51,7 +51,7 @@ jobs:
       - name: Run checks on the generated project
         working-directory: ${{ runner.temp }}/out
         run: |
-          uv run nox -s pre-commit ty docs-build
+          uv run nox -s prek ty docs-build
           uv run nox -s tests mypy -p 3.13
       - name: Run compiled tests
         if: matrix.extension == 'mypyc'
@@ -74,6 +74,9 @@ jobs:
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
           enable-cache: false
+      # uv-forge's own hooks stay on pre-commit for now: prek 0.5.11 fails to run the
+      # external zizmor-pre-commit hook (binary not found). Generated projects use a
+      # local zizmor hook and run under prek fine.
       - name: Run pre-commit
         run: uvx pre-commit run --all-files --show-diff-on-failure
 

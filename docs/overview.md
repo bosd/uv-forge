@@ -25,7 +25,7 @@ successor to the cookiecutter "hypermodern Python" line — built around the fas
 
 uv-forge asks a few questions when generating (see [Options](options.md)):
 
-- `extension` — pure-Python (Hatchling) or **mypyc**-compiled wheels.
+- `extension` — pure-Python (`uv_build`) or **mypyc**-compiled wheels.
 - `docs_host` — Read the Docs or GitHub Pages.
 - `license` — MIT, Apache-2.0, or GPL-3.0.
 

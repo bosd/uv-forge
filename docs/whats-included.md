@@ -22,7 +22,7 @@ Choosing `extension=mypyc` compiles your typed Python to C extensions with
 **[mypyc](https://mypyc.readthedocs.io/)** for a speed boost. The build backend switches to
 setuptools, per-platform wheels are built automatically with **cibuildwheel**, and a
 `tests_compiled` nox session exercises the compiled build. The default (`extension=none`) is pure
-Python on a Hatchling backend.
+Python on the `uv_build` backend.
 
 ## Hardened CI/CD
 

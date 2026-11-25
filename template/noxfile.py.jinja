@@ -25,7 +25,7 @@ package = "{{package_name}}"
 python_versions = ["3.12", "3.13", "3.11", "3.10", "3.14"]
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = [
-    "pre-commit",
+    "prek",
     "mypy",
     "ty",
     "tests",
@@ -110,9 +110,9 @@ def activate_virtualenv_in_precommit_hooks(session: nox.Session) -> None:
                 break
 
 
-@nox.session(name="pre-commit", python=python_versions[0])
-def precommit(session: nox.Session) -> None:
-    """Lint using pre-commit."""
+@nox.session(name="prek", python=python_versions[0])
+def prek(session: nox.Session) -> None:
+    """Lint using prek (Rust drop-in for pre-commit; reads .pre-commit-config.yaml)."""
     args = session.posargs or [
         "run",
         "--all-files",
@@ -131,7 +131,7 @@ def precommit(session: nox.Session) -> None:
         "ty",
         external=True,
     )
-    session.run("pre-commit", *args, external=True)
+    session.run("prek", *args, external=True)
     if args and args[0] == "install":
         activate_virtualenv_in_precommit_hooks(session)
 
