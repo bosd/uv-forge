@@ -24,8 +24,9 @@ uv run nox -s tests -p 3.13
 
 These run with a bare `uv run nox` and in CI.
 
-`pre-commit`
-: Lint and format everything — Ruff (lint + format), pydoclint, ty, zizmor and actionlint on the
+`prek`
+: Lint and format everything with [prek](https://github.com/j178/prek) (a Rust drop-in for
+pre-commit) — Ruff (lint + format), pydoclint, typos, ty, zizmor and actionlint on the
 workflows, prettier, and the file-hygiene hooks.
 
 `mypy`

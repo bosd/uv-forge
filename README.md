@@ -35,7 +35,7 @@ uvx --with jinja2-time copier update --trust
 
 | Question    | Choices                       | Default       | Effect                                                                                                                  |
 | ----------- | ----------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `extension` | `none`, `mypyc`               | `none`        | `none` → pure-Python (hatchling). `mypyc` → compiled wheels (setuptools + mypyc + cibuildwheel). _(Rust/PyO3 planned.)_ |
+| `extension` | `none`, `mypyc`               | `none`        | `none` → pure-Python (uv*build). `mypyc` → compiled wheels (setuptools + mypyc + cibuildwheel). *(Rust/PyO3 planned.)\_ |
 | `docs_host` | `readthedocs`, `github-pages` | `readthedocs` | Read the Docs config, or a GitHub Pages build+deploy workflow.                                                          |
 | `license`   | MIT, Apache-2.0, GPL-3.0      | MIT           | Project license.                                                                                                        |
 
@@ -44,7 +44,7 @@ Plus the usual `project_name`, `package_name`, `author`, `email`, `github_user`,
 
 ## What you get
 
-- **uv** project management, **Ruff** lint+format, **mypy --strict**, **ty** (secondary), **pydoclint**.
+- **uv** project management (and the `uv_build` backend), **prek** hooks, **typos**, **Ruff** lint+format, **mypy --strict**, **ty** (secondary), **pydoclint**.
 - **nox** sessions (tests, mypy, ty, typeguard, xdoctest, docs); **pytest** with xdist + randomly; 100% coverage gate.
 - **Sphinx** docs (shibuya theme) + a **non-blocking, weekly** link checker.
 - **Hardened CI**: every action SHA-pinned, least-privilege permissions, `persist-credentials: false`,

@@ -13,16 +13,17 @@ import pytest
 
 
 def test_defaults_render(copier, tmp_path: Path) -> None:
-    """Default answers produce a pure-Python (hatchling) project with a lockfile."""
+    """Default answers produce a pure-Python (uv_build) project with a lockfile."""
     project = copier.copy(tmp_path / "default")
     assert (project / "pyproject.toml").exists()
     assert (project / "uv.lock").exists()
     assert (project / ".readthedocs.yml").exists()
     assert not (project / "setup.py").exists()
     assert not (project / ".github/workflows/docs.yml").exists()
-    assert (
-        'build-backend = "hatchling.build"' in (project / "pyproject.toml").read_text()
-    )
+    pyproject = (project / "pyproject.toml").read_text()
+    assert 'build-backend = "uv_build"' in pyproject
+    assert 'license-files = ["LICENSE"]' in pyproject
+    assert "id: typos" in (project / ".pre-commit-config.yaml").read_text()
     assert (project / "src/my_package/__init__.py").exists()
 
 
@@ -53,6 +54,8 @@ def test_license_choice(copier, tmp_path: Path, license_id: str, marker: str) ->
     """Each license choice renders the matching LICENSE file."""
     project = copier.copy(tmp_path / "lic", license=license_id)
     assert marker.lower() in (project / "LICENSE").read_text().lower()
+    spdx = "GPL-3.0-only" if license_id == "GPL-3.0" else license_id
+    assert f'license = "{spdx}"' in (project / "pyproject.toml").read_text()
 
 
 def test_package_name_derived(copier, tmp_path: Path) -> None:

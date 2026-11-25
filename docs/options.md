@@ -16,7 +16,7 @@ Copier prompts for these (defaults in parentheses):
 
 ## `extension`
 
-- **`none`** (default) — pure-Python. Build backend is **Hatchling**; release builds a universal
+- **`none`** (default) — pure-Python. Build backend is **uv_build** (uv's own Rust backend); release builds a universal
   wheel + sdist with `uv build` and publishes via trusted publishing (with Sigstore + provenance).
 - **`mypyc`** — compiled wheels. Build backend is **setuptools**, `setup.py` compiles `core.py` with
   mypyc, a `tests_compiled` nox session runs against the C extension, and the release workflow uses

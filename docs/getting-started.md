@@ -21,7 +21,7 @@ answers in `.copier-answers.yml` so you can [update](updating.md) later.
 ```console
 cd path/to/your-project
 git init && git add -A && git commit -m "Initial commit"
-uv run nox            # pre-commit, mypy, ty, tests, typeguard, xdoctest, docs-build
+uv run nox            # prek, mypy, ty, tests, typeguard, xdoctest, docs-build
 ```
 
 Push to GitHub and the bundled workflows (tests, release, docs, labeler, weekly link check) take it

@@ -4,7 +4,9 @@ version = "{{version}}"
 description = "{{friendly_name}}"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "{{license}}"}
+# PEP 639 SPDX expression ("GPL-3.0" is a deprecated SPDX id; GPL-3.0-only is its exact equivalent).
+license = "{{ 'GPL-3.0-only' if license == 'GPL-3.0' else license }}"
+license-files = ["LICENSE"]
 authors = [
   {name = "{{author}}", email = "{{email}}"},
 ]
@@ -27,7 +29,7 @@ Changelog = "https://github.com/{{github_user}}/{{project_name}}/releases"
 [dependency-groups]
 dev = [
   "coverage[toml] >= 7.6",
-  "pre-commit >= 4.0",
+  "prek >= 0.5",
   "pre-commit-hooks >= 5.0",
   "pytest >= 8.3",
   "pytest-cov >= 5.0",
@@ -40,6 +42,7 @@ lint = [
   "ruff >= 0.8",
   "pydoclint >= 0.5.0",
   "zizmor >= 1.20",
+  "typos >= 1.30",
 ]
 docs = [
   "shibuya >= 2025.1.29",
@@ -66,8 +69,8 @@ xdoctest = [
 [tool.setuptools.packages.find]
 where = ["src"]
 {%- else -%}
-[tool.hatch.build.targets.wheel]
-packages = ["src/{{ package_name }}"]
+[tool.uv.build-backend]
+module-name = "{{ package_name }}"
 {%- endif %}
 
 [tool.uv]
@@ -82,13 +85,13 @@ package = true
 # modules here. Otherwise, mypyc will not be able to see the types of the
 # dependencies, and the compilation will fail.
 requires = [
-    "setuptools>=61.0",
+    "setuptools>=77.0",
     "mypy>=1.0",
 ]
 build-backend = "setuptools.build_meta"
 {%- else %}
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build >= 0.9, < 0.12"]
+build-backend = "uv_build"
 {%- endif %}
 
 [tool.coverage.paths]
@@ -172,3 +175,6 @@ convention = "google"
 style = 'google'
 exclude = '\.git|\.nox|noxfile.py'
 arg-type-hints-in-docstring = false
+
+[tool.typos.files]
+extend-exclude = ["uv.lock"]

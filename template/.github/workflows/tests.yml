@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { python: "3.12", os: "ubuntu-latest", session: "pre-commit" }
+          - { python: "3.12", os: "ubuntu-latest", session: "prek" }
           - { python: "3.14", os: "ubuntu-latest", session: "mypy" }
           - { python: "3.13", os: "ubuntu-latest", session: "mypy" }
           - { python: "3.12", os: "ubuntu-latest", session: "mypy" }
@@ -63,7 +63,7 @@ jobs:
         run: uv sync --all-groups
 
       - name: Compute pre-commit cache key
-        if: matrix.session == 'pre-commit'
+        if: matrix.session == 'prek'
         id: pre-commit-cache
         shell: python
         run: |
@@ -73,15 +73,15 @@ jobs:
           python = "py{}.{}".format(*sys.version_info[:2])
           payload = sys.version.encode() + sys.executable.encode()
           digest = hashlib.sha256(payload).hexdigest()
-          result = "${{ runner.os }}-{}-{}-pre-commit".format(python, digest[:8])
+          result = "${{ runner.os }}-{}-{}-prek".format(python, digest[:8])
 
           print(f"result={result}")
 
       - name: Restore pre-commit cache
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
-        if: matrix.session == 'pre-commit'
+        if: matrix.session == 'prek'
         with:
-          path: ~/.cache/pre-commit
+          path: ~/.cache/prek
           key: ${{ steps.pre-commit-cache.outputs.result }}-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
             ${{ steps.pre-commit-cache.outputs.result }}-
